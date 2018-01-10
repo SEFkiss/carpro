@@ -15,13 +15,6 @@ if (Yii::$app->controller->action->id === 'login') {
         ['content' => $content]
     );
 } else {
-    //Проверка залогиневшегося пользователя
-    //Является ли он 'admin'
-    //Если нет, то вызываем ЛОГаут и редирект на главную fronta
-    if (!\Yii::$app->user->can('admin')) {
-        Yii::$app->user->logout();
-        Yii::$app->response->redirect('http://' . Yii::$app->request->hostName);
-    }
 
     if (class_exists('backend\assets\AppAsset')) {
         backend\assets\AppAsset::register($this);
